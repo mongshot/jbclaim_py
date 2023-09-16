@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from telegram import Bot
+import asyncio  # 비동기 작업을 위해 asyncio 모듈을 가져옵니다.
 
 app = Flask(__name__)
 app.debug = True
@@ -21,12 +22,18 @@ def submit():
 
     message = f'신고인: {reporter}\n신고위치: {location}\n신고사항: {complaint}'
 
-    send_telegram_message(message)
+    loop = asyncio.new_event_loop()  # 비동기 작업을 위한 이벤트 루프를 생성합니다.
+    asyncio.set_event_loop(loop)  # 현재 이벤트 루프를 설정합니다.
+
+    try:
+        loop.run_until_complete(send_telegram_message(message))  # 메시지 전송을 비동기로 실행합니다.
+    finally:
+        loop.close()  # 이벤트 루프를 닫습니다.
 
     return '신고가 접수되었습니다. 감사합니다!'
 
-def send_telegram_message(message):
-    bot.send_message(chat_id=TELEGRAM_CHAT_ID, text=message)
+async def send_telegram_message(message):
+    await bot.send_message(chat_id=TELEGRAM_CHAT_ID, text=message)
 
 if __name__ == '__main__':
     try:
