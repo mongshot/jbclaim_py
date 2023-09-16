@@ -1,21 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>불편사항 신고</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JB CORP 불편사항 신고</title>
+    <style>
+        /* 스타일 수정 가능 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            text-align: center;
+            background-color: #0070c0;
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
-    <h1>불편사항 신고</h1>
-    <form action="/submit" method="post">
-        <label for="reporter">신고자 이름:</label>
-        <input type="text" id="reporter" name="reporter" required><br><br>
-
-        <label for="location">불편 발생 위치:</label>
-        <input type="text" id="location" name="location" required><br><br>
-
-        <label for="complaint">불편 내용:</label><br>
-        <textarea id="complaint" name="complaint" rows="4" cols="50" required></textarea><br><br>
-
-        <input type="submit" value="신고 제출">
-    </form>
+    <div class="header">
+        <h1>JB CORP 불편사항 신고</h1>
+    </div>
+    <div class="container">
+        <!-- 내용 추가 -->
+        <h2>불편사항을 신고해주세요</h2>
+        <p>불편한 경험을 공유하고 문제를 해결하기 위해 아래 양식을 작성해주세요.</p>
+        <form>
+            <!-- 입력 폼 추가 -->
+            <label for="name">이름:</label>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="issue">불편사항:</label><br>
+            <textarea id="issue" name="issue" rows="4" cols="50"></textarea><br><br>
+            <input type="submit" value="제출">
+        </form>
+    </div>
 </body>
 </html>
