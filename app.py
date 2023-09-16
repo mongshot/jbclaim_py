@@ -30,4 +30,7 @@ def send_telegram_message(message):
     bot.send_message(chat_id=TELEGRAM_CHAT_ID, text=message)
 
 if __name__ == '__main__':
-    app.run()
+    try:
+        app.run()
+    except Exception as e:
+        print('An error occurred:', str(e))
