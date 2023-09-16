@@ -5,25 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JB CORP 불편사항 신고</title>
     <style>
-        /* 스타일 수정 가능 */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+        /* Reset some default styles for better consistency */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
+
+        /* Styling for the header */
         .header {
             text-align: center;
             background-color: #0070c0;
             color: white;
             padding: 20px;
         }
+
+        /* Styling for the container */
         .container {
             max-width: 600px;
             margin: 0 auto;
             padding: 20px;
             background-color: white;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styling for the form */
+        form {
+            margin-top: 20px;
+        }
+
+        /* Styling for labels */
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Styling for input fields and textarea */
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Styling for the submit button */
+        input[type="submit"] {
+            background-color: #0070c0;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Add some spacing for readability */
+        h2 {
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -34,7 +74,7 @@
     <div class="container">
         <!-- 내용 추가 -->
         <h2>불편사항을 신고해주세요</h2>
-        <form id="complaintForm">
+        <form id="complaintForm" method="POST" action="/submit">
             <!-- 입력 폼 추가 -->
             <label for="reporterName">신고인:</label>
             <input type="text" id="reporterName" name="reporterName"><br><br>
@@ -48,24 +88,5 @@
             <input type="submit" value="제출">
         </form>
     </div>
-
-    <script>
-        document.getElementById('complaintForm').addEventListener('submit', function(event) {
-            event.preventDefault();  // 폼 제출 방지
-
-            // 신고 정보 수집
-            const reporterName = document.getElementById('reporterName').value;
-            const reportLocation = document.getElementById('reportLocation').value;
-            const complaint = document.getElementById('complaint').value;
-
-            // 여기서 서버로 정보를 전송하거나 필요한 작업을 수행할 수 있습니다.
-            // 예를 들어, Ajax를 사용하여 서버에 정보를 전송할 수 있습니다.
-
-            // 여기서는 간단히 콘솔에 출력하도록 하겠습니다.
-            console.log('신고인:', reporterName);
-            console.log('신고위치:', reportLocation);
-            console.log('신고사항:', complaint);
-        });
-    </script>
 </body>
 </html>
