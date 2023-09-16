@@ -6,6 +6,7 @@ app.debug = True
 
 TELEGRAM_BOT_TOKEN = '6560335312:AAHo82hdFJr1q_6CKUkms7NkL68kwgMul08'
 TELEGRAM_CHAT_ID = '71046013'
+
 bot = Bot(token=TELEGRAM_BOT_TOKEN)
 
 @app.route('/')
