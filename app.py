@@ -10,7 +10,7 @@ TELEGRAM_CHAT_ID = '71046013'
 
 bot = Bot(
     token=TELEGRAM_BOT_TOKEN,
-    connector=httpcore.AsyncHTTPTransport,  # AsyncHTTPTransport를 사용합니다.
+    connector=httpcore.AsyncHTTPTransportPool,  # AsyncHTTPTransportPool을 사용합니다.
     max_connections=50  # 연결 풀 크기를 적절히 조정합니다.
 )
 # httpcore 연결 풀의 타임아웃 설정
