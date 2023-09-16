@@ -34,15 +34,38 @@
     <div class="container">
         <!-- 내용 추가 -->
         <h2>불편사항을 신고해주세요</h2>
-        <p>불편한 경험을 공유하고 문제를 해결하기 위해 아래 양식을 작성해주세요.</p>
-        <form>
+        <form id="complaintForm">
             <!-- 입력 폼 추가 -->
-            <label for="name">이름:</label>
-            <input type="text" id="name" name="name"><br><br>
-            <label for="issue">불편사항:</label><br>
-            <textarea id="issue" name="issue" rows="4" cols="50"></textarea><br><br>
+            <label for="reporterName">신고인:</label>
+            <input type="text" id="reporterName" name="reporterName"><br><br>
+
+            <label for="reportLocation">신고위치:</label>
+            <input type="text" id="reportLocation" name="reportLocation"><br><br>
+
+            <label for="complaint">신고사항:</label><br>
+            <textarea id="complaint" name="complaint" rows="4" cols="50"></textarea><br><br>
+
             <input type="submit" value="제출">
         </form>
     </div>
+
+    <script>
+        document.getElementById('complaintForm').addEventListener('submit', function(event) {
+            event.preventDefault();  // 폼 제출 방지
+
+            // 신고 정보 수집
+            const reporterName = document.getElementById('reporterName').value;
+            const reportLocation = document.getElementById('reportLocation').value;
+            const complaint = document.getElementById('complaint').value;
+
+            // 여기서 서버로 정보를 전송하거나 필요한 작업을 수행할 수 있습니다.
+            // 예를 들어, Ajax를 사용하여 서버에 정보를 전송할 수 있습니다.
+
+            // 여기서는 간단히 콘솔에 출력하도록 하겠습니다.
+            console.log('신고인:', reporterName);
+            console.log('신고위치:', reportLocation);
+            console.log('신고사항:', complaint);
+        });
+    </script>
 </body>
 </html>
