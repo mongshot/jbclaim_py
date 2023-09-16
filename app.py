@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from telegram import Bot
-import asyncio, httpcore  # 비동기 작업을 위해 asyncio 모듈을 가져옵니다.
+import asyncio, httpcore, httpx  # 비동기 작업을 위해 asyncio 모듈을 가져옵니다.
 
 app = Flask(__name__)
 app.debug = True
@@ -10,9 +10,10 @@ TELEGRAM_CHAT_ID = '71046013'
 
 bot = Bot(
     token=TELEGRAM_BOT_TOKEN,
-    connector=httpcore.AsyncHTTPTransport,  # AsyncHTTPTransport를 사용합니다.
-    max_connections=50  # 연결 풀 크기를 적절히 조정합니다.
+    connector=httpx.AsyncHTTPTransport,  # httpx를 사용합니다.
+    max_connections=50
 )
+
 # httpcore 연결 풀의 타임아웃 설정
 httpcore.DEFAULT_CONNECTION_TIMEOUT = 60.0  # 60초로 타임아웃을 늘립니다.
 
