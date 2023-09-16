@@ -12,7 +12,7 @@ bot = Bot(token=TELEGRAM_BOT_TOKEN)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('report.html')
 
 @app.route('/submit', methods=['POST'])
 def submit():
