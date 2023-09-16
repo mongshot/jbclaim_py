@@ -1,5 +1,3 @@
-TELEGRAM_BOT_TOKEN = '6560335312:AAHo82hdFJr1q_6CKUkms7NkL68kwgMul08'
-TELEGRAM_CHAT_ID = '71046013'
 
 from flask import Flask, render_template, request
 from telegram import Bot
@@ -14,7 +12,7 @@ bot = Bot(token=TELEGRAM_BOT_TOKEN)
 
 @app.route('/')
 def home():
-    return render_template('report.html')
+    return render_template('index.html')
 
 @app.route('/submit', methods=['POST'])
 def submit():
