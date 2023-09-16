@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template, request
 from telegram import Bot
 
@@ -7,7 +6,6 @@ app.debug = True
 
 TELEGRAM_BOT_TOKEN = '6560335312:AAHo82hdFJr1q_6CKUkms7NkL68kwgMul08'
 TELEGRAM_CHAT_ID = '71046013'
-
 bot = Bot(token=TELEGRAM_BOT_TOKEN)
 
 @app.route('/')
@@ -16,11 +14,11 @@ def home():
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    reporter = request.form['reporter']
-    location = request.form['location']
+    reporter = request.form['reporterName']
+    location = request.form['reportLocation']
     complaint = request.form['complaint']
 
-    message = f'신고자: {reporter}\n위치: {location}\n불편내용: {complaint}'
+    message = f'신고인: {reporter}\n신고위치: {location}\n신고사항: {complaint}'
 
     send_telegram_message(message)
 
